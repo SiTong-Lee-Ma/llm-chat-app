@@ -1,0 +1,213 @@
+/* src/styles/globals.css */
+/* 全局基础样式 — 注入到 App.jsx 的 <style> 标签中（或通过 index.css 引入） */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;700&display=swap');
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 动画 */
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 三点 loading 跳动 */
+@keyframes dotBounce {
+
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-5px);
+  }
+}
+
+.msg-appear {
+  animation: fadeIn 0.18s ease forwards;
+}
+
+/* Markdown 内容 */
+.md-content h1,
+.md-content h2,
+.md-content h3 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 700;
+  margin: 12px 0 6px;
+  border-bottom: 1px solid #000;
+  padding-bottom: 4px;
+}
+
+.md-content h1 {
+  font-size: 16px;
+}
+
+.md-content h2 {
+  font-size: 14px;
+}
+
+.md-content h3 {
+  font-size: 13px;
+}
+
+.md-content p {
+  margin: 6px 0;
+}
+
+.md-content ul,
+.md-content ol {
+  padding-left: 18px;
+  margin: 6px 0;
+}
+
+.md-content li {
+  margin: 3px 0;
+}
+
+/* 行内代码 */
+.md-content code {
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 1px 5px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+}
+
+/* 代码块 */
+.md-content pre {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-left: 3px solid #000;
+  padding: 10px 12px;
+  margin: 8px 0;
+  overflow-x: auto;
+  font-size: 12px;
+  position: relative;
+}
+
+/* 语言标注 */
+.md-content pre[data-lang]::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.md-content pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.md-content strong {
+  font-weight: 700;
+}
+
+.md-content em {
+  font-style: italic;
+}
+
+/* 全局控件复位 */
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bbb;
+}
+
+/* 通用按钮 */
+.btn {
+  border: 2px solid #000;
+  background: #fff;
+  color: #000;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 12px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background 0.1s, color 0.1s;
+}
+
+.btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+  background: #fff;
+  color: #000;
+}
+
+.btn-danger {
+  border-color: #ff3b30;
+  color: #ff3b30;
+}
+
+.btn-danger:hover {
+  background: #ff3b30;
+  color: #fff;
+}
+
+.btn-primary {
+  background: #000;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #333;
+}
+
+.btn-primary:disabled:hover {
+  background: #000;
+}
